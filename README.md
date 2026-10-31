@@ -54,7 +54,7 @@ At the highest severity, 40% of the group's non-toxic training comments were rel
 **Key findings**
 - **Which labels are wrong matters more than how many.** Relabeling 40% of the group's non-toxic comments (8.9% of all training labels) raised DistilBERT's FPR gap from 0.05 to 0.44: the model flagged the group's harmless comments as toxic far more often than other harmless comments. The same number of random flips left the gap unchanged (0.05), and the same number of errors placed on other comments slightly lowered it (0.03).
 - **Overall AUC does not reveal the harm.** DistilBERT's AUC fell by about the same amount under group-targeted errors (0.882 → 0.857) as under errors on other comments (→ 0.859), although only the first created a fairness gap. For TF-IDF, the group-targeted condition even had the *highest* AUC of the three corrupted conditions. The subgroup metrics (FPR gap, BPSN AUC) are what detect it.
-- **The stronger model inherits the bias more.** DistilBERT starts fairer than TF-IDF (BPSN AUC 0.78 vs. 0.63) but reaches a larger gap under group-targeted errors (0.44 vs. 0.30), with the sharpest rise between 30% and 40% severity and the most variation across seeds there (0.35–0.54).
+- **DistilBERT reached a larger gap than TF-IDF in this setup.** It starts fairer (BPSN AUC 0.78 vs. 0.63) but reaches a larger FPR gap under group-targeted errors (0.44 vs. 0.30). With 3 seeds and wide variation at the highest severity (0.35–0.54), this difference is suggestive rather than established.
 - **Note on accuracy:** accuracy did drop under group-targeted errors (DistilBERT 0.866 → 0.774). This is partly because the test set is enriched to 50% group comments; in data with the natural group share, the drop would be smaller.
 
 ## Run it
