@@ -7,6 +7,7 @@ This project extends my [data-quality stress test](https://github.com/RumeysaGor
 ## Design
 
 - **Data:** [CivilComments-WILDS](https://huggingface.co/datasets/pietrolesci/civilcomments-wilds) (Borkan et al., 2019; Koh et al., 2021). The task is to predict whether a comment is toxic.
+  - Labels and identity flags in this version of the dataset are already binary (0/1).
 - **Group:** comments that mention a Black, Muslim or LGBTQ identity
 - **Sample:**
   - 20,000 training comments (30% from the group)
@@ -77,6 +78,7 @@ python plot_results.py --inp results/tfidf/results.csv results/transformer/resul
 - One dataset, two model families and a fixed 0.5 decision threshold
 - Enriched sample: group shares differ from the natural data, so absolute rates are not population estimates
 - 3 seeds give a rough sense of variability, not formal tests.
+- The train/test sample is drawn once; the 3 seeds vary only label corruption and model training, so the ± 1 SD bands understate total variability.
 
 ## Related work
 
